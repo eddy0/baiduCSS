@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3d</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .up, .down {
+            position: absolute;
+            transition: all 0.8s;
+        }
+        .container:hover .up{
+            transform: rotateY(180deg);
+            backface-visibility:hidden;
+        }
+        .container:hover .down{
+            transform: rotateY(-180deg);
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="down" src="./反面.jpg" alt="">
+        <img class="up" src="./正面.jpg" alt="">
+    </div>
+</body>
+</html>
