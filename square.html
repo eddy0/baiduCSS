@@ -1,33 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>square</title>
+    <title>3d tube</title>
     <style>
         body {
             background-color: #000;
         }
-        .cube {
+        .wrapper {
+            margin: 300px;
             width: 200px;
             height: 200px;
-            background-color: rgba(155,155,255,0.6);
-            margin: 100px 100px;
-            border: 2px solid blue;
-            transform: rotate(180deg);
+            perspective: 800px;
+            transform-style: preserve-3d;
+            perspective-origin: center;
+
 
         }
+        @keyframes move {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
 
+        .cube {
+            position: relative;
+            width: inherit;
+            height: inherit;
+            transform-style: preserve-3d;
+            animation: move 10s linear infinite alternate ;
+        }
+        .cube-image {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            background-color: lightblue;
+            opacity: 0.3;
+            border: 2px solid darkseagreen;
+        }
+        .front {
+            transform: translateZ(100px);
+        }
+        .back {
+            transform: rotateY(180deg) translateZ(-100px) ;
+        }
+        .top {
+            transform: rotateX(90deg) translateZ(100px) ;
+        }
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px) ;
+        }
+        .right {
+            transform: rotateY(90deg) translateZ(100px) ;
+        }
+        .left {
+            transform: rotateY(-90deg) translateZ(100px) ;
+
+        }
 
     </style>
 </head>
 <body>
-<div class="cube">
-
-
-
+<div class="wrapper">
+    <div class="cube">
+        <div class="cube-image front"></div>
+        <div class="cube-image back"></div>
+        <div class="cube-image top"></div>
+        <div class="cube-image bottom"></div>
+        <div class="cube-image right"></div>
+        <div class="cube-image left"></div>
+    </div>
 </div>
+
 
 </body>
 </html>
